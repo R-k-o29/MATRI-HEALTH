@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 from io import StringIO
 import requests
-from streamlit_chat import message
+
 
 from codebase.dashboardgraph import MaternalHealthDashboard
 
@@ -379,57 +379,3 @@ if (selected == "Food calorie check"):
 
 
 
-# Function to simulate chatbot interaction with close functionality
-def chatbot():
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    
-    if "chat_open" not in st.session_state:
-        st.session_state.chat_open = True  # Flag to control chat visibility
-    
-    # Predefined questions and answers
-    predefined_questions = {
-        "What is Pregnancy Risk Prediction?": "Pregnancy Risk Prediction uses algorithms to predict potential risks during pregnancy by analyzing age, blood pressure, glucose levels, and more.",
-        "What is Fetal Health Prediction?": "Fetal Health Prediction assesses the health of the fetus using various parameters like heart rate, fetal movements, and ultrasound data.",
-        "About visualization?": "The Dashboard provides a visual representation of maternal health, showcasing charts and analytics about healthcare effectiveness."
-    }
-
-    # If the chatbot is open
-    if st.session_state.chat_open:
-        # Display chatbot interface
-        st.title("Chatbot")
-
-        # User input
-        user_input = st.text_input("Ask me anything", key="user_input")
-
-        # Add user message to the chat history only if it is a new message
-        if user_input and not any(msg["role"] == "user" and msg["text"] == user_input for msg in st.session_state.messages):
-            st.session_state.messages.append({"role": "user", "text": user_input})
-
-            # Respond with predefined answers
-            if user_input in predefined_questions:
-                st.session_state.messages.append({"role": "bot", "text": predefined_questions[user_input]})
-            else:
-                st.session_state.messages.append({"role": "bot", "text": "Sorry, I don’t understand your question. Please try another one."})
-
-        # Display chat history
-        for idx, msg in enumerate(st.session_state.messages):
-            if msg["role"] == "user":
-                message(msg["text"], is_user=True, key=f"user_{idx}")
-            else:
-                message(msg["text"], is_user=False, key=f"bot_{idx}")
-
-        # Close chat button
-        close_button = st.button("Close Chat", key="close_chat")
-        if close_button:
-            st.session_state.chat_open = False  # Hide the chat when the button is pressed
-
-    # If the chatbot is closed
-    else:
-        # Display a floating chat icon
-        if st.button("Open Chat", key="open_chat"):
-            st.session_state.chat_open = True  # Open the chat when the button is pressed
-
-
-# Run the chatbot function
-chatbot()
