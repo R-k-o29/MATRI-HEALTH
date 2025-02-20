@@ -391,7 +391,7 @@ def chatbot():
     predefined_questions = {
         "What is Pregnancy Risk Prediction?": "Pregnancy Risk Prediction uses algorithms to predict potential risks during pregnancy by analyzing age, blood pressure, glucose levels, and more.",
         "What is Fetal Health Prediction?": "Fetal Health Prediction assesses the health of the fetus using various parameters like heart rate, fetal movements, and ultrasound data.",
-        "What is the Dashboard?": "The Dashboard provides a visual representation of maternal health, showcasing charts and analytics about healthcare effectiveness."
+        "About visualization?": "The Dashboard provides a visual representation of maternal health, showcasing charts and analytics about healthcare effectiveness."
     }
 
     # If the chatbot is open
