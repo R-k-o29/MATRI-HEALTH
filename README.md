@@ -16,4 +16,4 @@ Core Functionalities:
 
 This project was developed by me as part of the 24-hour hackathon ‘UDGHAM’ conducted at `Woxsen University`, where the focus was on leveraging AI and data science for impactful healthcare solutions.
 
-**Execution Video**: `https://drive.google.com/file/d/14h1k8rA5zA0nN8EwiC5NmbKdC7IP0zP7/view?usp=drive_link`
+**Execution Video**: https://drive.google.com/file/d/14h1k8rA5zA0nN8EwiC5NmbKdC7IP0zP7/view?usp=drive_link
